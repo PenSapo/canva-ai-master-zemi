@@ -686,141 +686,7 @@
   
     /* タイトルは全幅で必ず1行表示 */
     .hero-card .series {
-      white-space: nowrap !important;
-      word-break: keep-all !important;
-      overflow-wrap: normal !important;
-      text-wrap: nowrap !important;
-      font-size: clamp(18px, 4.15vw, 66px) !important;
-      letter-spacing: -.055em;
-    }
-
-  
-    /* 不自然な途中改行を防ぐ */
-    h1, h2, h3, h4,
-    .series,
-    .theme-label,
-    .goal-box,
-    .accent-box,
-    .flow-step,
-    .speech,
-    .tool-card h4,
-    .tool-card p,
-    .price-chip,
-    .principle h4,
-    .principle p,
-    .link-row span,
-    .final p {
-      word-break: keep-all !important;
-      overflow-wrap: normal !important;
-      line-break: strict;
-      text-wrap: balance;
-    }
-
-    .series {
-      white-space: nowrap !important;
-      font-size: clamp(17px, 3.9vw, 62px) !important;
-      letter-spacing: -.06em !important;
-    }
-
-    .theme-box h1 {
-      font-size: clamp(28px, 4.4vw, 62px);
-      line-height: 1.28;
-    }
-
-    .goal-box,
-    .accent-box {
-      font-size: clamp(22px, 3vw, 38px);
-      line-height: 1.45;
-    }
-
-    .flow-step {
-      font-size: clamp(16px, 1.8vw, 21px);
-    }
-
-    .tool-card p,
-    .principle p,
-    .panel,
-    li {
-      word-break: keep-all;
-      overflow-wrap: anywhere;
-    }
-
-    .nowrap {
-      white-space: nowrap !important;
-      display: inline-block;
-    }
-
-    @media (max-width: 900px) {
-      .series {
-        font-size: clamp(16px, 3.55vw, 34px) !important;
-      }
-      .theme-box h1 {
-        font-size: clamp(26px, 5.8vw, 48px);
-      }
-    }
-
-    @media (max-width: 560px) {
-      .series {
-        font-size: clamp(14px, 3.75vw, 24px) !important;
-        letter-spacing: -.07em !important;
-      }
-      .theme-box h1,
-      .section-title,
-      .subsection h3,
-      .goal-box,
-      .accent-box {
-        word-break: keep-all !important;
-        overflow-wrap: normal !important;
-      }
-    }
-
-    @media (max-width: 700px) {
-      .principles {
-        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-        gap: 10px;
-      }
-      .principle {
-        padding: 14px;
-        border-radius: 18px;
-      }
-      .principle h4 {
-        font-size: clamp(20px, 5vw, 27px);
-      }
-      .principle p {
-        font-size: 14px;
-        line-height: 1.6;
-      }
-      .visual {
-        height: 140px;
-      }
-    }
-
-  
-    .task-notes {
-      margin-top: 18px;
-      display: grid;
-      gap: 8px;
-    }
-    .task-notes p {
-      margin: 0;
-      font-size: 16px;
-      font-weight: 500;
-      line-height: 1.7;
-    }
-
-    .summary-card {
-      position: relative;
-      overflow: hidden;
-      padding: clamp(26px, 4vw, 40px);
-      border-radius: var(--radius-lg);
-      background:
-        radial-gradient(circle at 88% 18%, rgba(255,255,255,.9), transparent 8rem),
-        linear-gradient(135deg, var(--sub), rgba(248,168,168,.42));
-      border: 1px solid rgba(248,168,168,.78);
-      box-shadow: inset 0 1px rgba(255,255,255,.95), 0 14px 32px rgba(170,50,118,.10);
-    }
-    .summary-card::after {
-      content: "";
+      white-space: nowrap…772 tokens truncated…     content: "";
       position: absolute;
       width: 120px;
       height: 120px;
@@ -961,6 +827,10 @@
       overflow-wrap: normal !important;
     }
 
+    .mobile-break {
+      display: none;
+    }
+
     @media (max-width: 700px) {
       .principle-copy {
         font-size: clamp(10px, 2.5vw, 13px) !important;
@@ -999,82 +869,150 @@
       }
 
       .hero-card {
-        padding: 28px 20px;
+        padding: 24px 16px;
       }
 
       .section {
-        padding: 26px 18px;
+        padding: 24px 16px;
       }
 
       .theme-box,
       .goal-box,
       .accent-box,
       .summary-card {
-        padding: 22px 18px;
+        padding: 20px 16px;
         height: auto;
         min-height: 0;
       }
 
       .tool-card,
       .panel {
-        padding: 22px 18px;
+        padding: 20px 16px;
       }
 
-      .hero-card .series,
-      .series,
-      .nowrap,
-      .theme-label,
-      .theme-box h1,
-      .section-title,
-      .subsection h3,
-      .goal-box,
-      .accent-box,
+      p,
+      li,
+      .panel,
       .flow-step,
-      .speech,
-      .tool-card h4,
-      .tool-card p,
-      .price-chip,
+      .tool-card,
       .link-row span,
-      .summary-card p,
-      .final p,
-      .principle h4,
-      .principle-copy span {
-        white-space: normal !important;
+      .summary-card p {
+        white-space: normal;
         word-break: normal !important;
-        overflow-wrap: anywhere !important;
+        overflow-wrap: break-word !important;
+        line-break: strict;
         text-wrap: pretty !important;
       }
 
       .nowrap {
-        display: inline;
+        display: inline-block;
+        white-space: nowrap !important;
+        word-break: keep-all !important;
+        overflow-wrap: normal !important;
+        text-wrap: nowrap !important;
       }
 
-      .series .session-no {
+      .hero-card .series {
+        white-space: normal !important;
+        font-size: clamp(14px, 4.6vw, 20px) !important;
+        line-height: 1.35;
+        letter-spacing: -.045em !important;
+      }
+
+      .series > .nowrap,
+      .series > .session-no {
+        display: block;
         white-space: nowrap !important;
+        text-wrap: nowrap !important;
+      }
+
+      .theme-label {
+        font-size: clamp(18px, 5.4vw, 24px);
       }
 
       .theme-box h1 {
-        font-size: clamp(26px, 8vw, 36px);
+        font-size: clamp(17px, 5.5vw, 24px);
+        line-height: 1.55;
+        word-break: keep-all !important;
+        overflow-wrap: normal !important;
+        text-wrap: nowrap !important;
+      }
+
+      .theme-box h1 > .nowrap {
+        display: block;
       }
 
       .section-title {
-        font-size: clamp(26px, 7.5vw, 34px);
+        font-size: clamp(20px, 5.8vw, 25px);
+        word-break: keep-all !important;
+        overflow-wrap: normal !important;
       }
 
-      .section-title.small,
-      .subsection h3 {
-        font-size: clamp(22px, 6.5vw, 29px);
+      .section-title.small {
+        font-size: clamp(18px, 5.4vw, 23px);
       }
 
-      .goal-box,
-      .accent-box,
-      .summary-card p {
-        font-size: clamp(20px, 5.8vw, 27px);
+      .section-title > .nowrap {
+        display: block;
       }
 
       .subsection h3 {
         display: flex;
         width: 100%;
+        font-size: clamp(18px, 5.2vw, 23px);
+        word-break: normal !important;
+        overflow-wrap: break-word !important;
+        text-wrap: pretty !important;
+      }
+
+      .mobile-break {
+        display: block;
+      }
+
+      @supports (word-break: auto-phrase) {
+        p,
+        li,
+        .panel,
+        .flow-step,
+        .tool-card,
+        .link-row span {
+          word-break: auto-phrase !important;
+        }
+      }
+
+      .goal-box,
+      .accent-box {
+        font-size: clamp(15px, 4.4vw, 21px);
+        line-height: 1.65;
+      }
+
+      .goal-box > .nowrap,
+      .accent-box > .nowrap,
+      .tool-card p > .nowrap,
+      .summary-card p > .nowrap,
+      .link-row > span > .nowrap {
+        display: block;
+      }
+
+      .flow-step {
+        padding: 16px 14px;
+        font-size: clamp(13px, 3.8vw, 16px);
+      }
+
+      .speech {
+        padding: 16px 12px;
+        font-size: clamp(12px, 3.6vw, 15px);
+      }
+
+      .tool-card p {
+        font-size: 15px;
+        line-height: 1.75;
+      }
+
+      .price-chip {
+        max-width: 100%;
+        font-size: 14px;
+        white-space: nowrap !important;
       }
 
       .btn,
@@ -1083,20 +1021,99 @@
         min-width: 0;
       }
 
+      .summary-card p {
+        font-size: clamp(16px, 4.6vw, 21px);
+        line-height: 1.75;
+      }
+
       .principles {
-        grid-template-columns: 1fr !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 10px;
       }
 
       .principle {
-        padding: 18px;
+        padding: 12px;
+      }
+
+      .principle-head {
+        column-gap: 6px;
       }
 
       .principle h4 {
-        font-size: clamp(22px, 6vw, 28px);
+        font-size: clamp(17px, 4.8vw, 22px);
+      }
+
+      .principle .en {
+        display: block;
+        font-size: clamp(7px, 2vw, 9px);
+      }
+
+      .principle-copy {
+        font-size: clamp(8px, 2.5vw, 11px) !important;
+      }
+
+      .principle-copy span {
+        white-space: nowrap !important;
+        word-break: keep-all !important;
+        overflow-wrap: normal !important;
       }
 
       .visual {
-        height: 160px;
+        height: 112px;
+      }
+
+      .proximity-visual {
+        gap: 8px;
+        padding: 12px;
+      }
+
+      .shape-cluster {
+        grid-template-columns: repeat(2, 18px);
+        gap: 4px;
+      }
+
+      .sq,
+      .dot,
+      .tri {
+        width: 18px;
+        height: 18px;
+      }
+
+      .cluster-wrap {
+        gap: 6px;
+      }
+
+      .alignment-visual,
+      .repetition-visual {
+        padding: 14px;
+      }
+
+      .repeat-row {
+        gap: 7px;
+        margin-bottom: 7px;
+      }
+
+      .repeat-row b {
+        height: 22px;
+      }
+
+      .contrast-visual {
+        padding: 10px;
+      }
+
+      .contrast-circles span:nth-child(1) {
+        width: 62px;
+        height: 62px;
+      }
+
+      .contrast-circles span:nth-child(2) {
+        width: 28px;
+        height: 28px;
+      }
+
+      .contrast-circles span:nth-child(3) {
+        width: 42px;
+        height: 42px;
       }
     }
 
@@ -1123,9 +1140,9 @@
       <div class="flow">
         <div class="flow-step">① 本日のゴールを共有（5分）</div>
         <div class="flow-step">② 公開添削（30分）</div>
-        <div class="flow-step">③ <span class="nowrap">理論とテクニックの解説</span>（25分）</div>
+        <div class="flow-step"><span class="nowrap">③ 理論とテクニックの解説</span><span class="nowrap">（25分）</span></div>
         <div class="flow-step">④ リフレクション（5分）</div>
-        <div class="flow-step">⑤ <span class="nowrap">まとめとネクストアクション</span>（5分）</div>
+        <div class="flow-step"><span class="nowrap">⑤ まとめとネクストアクション</span><span class="nowrap">（5分）</span></div>
         <div class="speech"><span class="nowrap">次週までの課題はここで発表します！</span></div>
       </div>
     </section>
@@ -1168,7 +1185,7 @@
             <div class="tool-head">
               <h4><a href="https://www.canva.com/ja_jp/pricing/" target="_blank" rel="noopener noreferrer">Canva</a></h4>
             </div>
-            <p><span class="nowrap">プロ版を推奨</span><span class="nowrap">（契約していない方には30日の無料体験がおすすめ）</span></p>
+            <p><span class="nowrap">プロ版を推奨</span><span class="nowrap">（契約していない方には</span><span class="nowrap">30日の無料体験がおすすめ）</span></p>
             <div class="price-chip">Canvaプロ：1,180円/月</div>
             <ul class="benefit-list">
               <li>編集中に便利なAI機能を無制限で使用できる</li>
@@ -1191,7 +1208,7 @@
       </div>
 
       <div class="subsection">
-        <h3>ミニ講義の申し込みフォーム</h3>
+        <h3><span>ミニ講義の<br class="mobile-break">申し込みフォーム</span></h3>
         <div class="panel soft">
           <p>▼こちらからお気軽に申し込んでください！</p>
           <a class="btn wide" href="https://forms.gle/7qqtUEWdGmKNuyph7" target="_blank" rel="noopener noreferrer">申し込みフォーム</a>
@@ -1267,7 +1284,7 @@
       </div>
 
       <div class="subsection">
-        <h3>トンマナ（トーン＆マナー）</h3>
+        <h3><span>トンマナ<br class="mobile-break">（トーン＆マナー）</span></h3>
         <div class="panel soft">
           <p>「調子や色」という意味を持つトーン（tone）と、「様式や作風」という意味を持つマナー（manner）</p>
         </div>
@@ -1277,7 +1294,7 @@
         <h3>デザインのリサーチ</h3>
         <div class="panel">
           <div class="link-row">
-            <span>リサーチやデザインに便利な参考サイト</span>
+            <span><span class="nowrap">リサーチやデザインに便利な</span><span class="nowrap">参考サイト</span></span>
             <a class="btn" href="https://docs.google.com/spreadsheets/d/1MQs4-tj6ZVe2Ufbggr5jdYiVH-moCfzhB_qYMydn3M4/edit?usp=sharing" target="_blank" rel="noopener noreferrer">開く</a>
           </div>
         </div>
@@ -1286,7 +1303,7 @@
 
     <section class="section reveal" id="part3">
       <div class="part-pill">Part③</div>
-      <h2 class="section-title"><span class="nowrap">まとめとネクストアクション</span></h2>
+      <h2 class="section-title"><span class="nowrap">まとめと</span><span class="nowrap">ネクストアクション</span></h2>
 
       <div class="subsection">
         <h3>次回までの課題</h3>
@@ -1313,7 +1330,7 @@
 
     <section class="section reveal" id="summary">
       <div class="summary-card">
-        <p><span class="nowrap">Communeに意気込み・今日の感想・目標などを</span><span class="nowrap">投稿してみましょう！</span></p>
+        <p><span class="nowrap">Communeに意気込み・</span><span class="nowrap">今日の感想・目標などを</span><span class="nowrap">投稿してみましょう！</span></p>
       </div>
     </section>
   </main>
