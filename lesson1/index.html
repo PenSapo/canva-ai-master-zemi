@@ -244,6 +244,14 @@
       transform: translateY(-4px);
       box-shadow: 0 16px 30px rgba(97,40,73,.13);
     }
+
+    .lesson-outline {
+      margin-bottom: 0;
+    }
+
+    .lesson-outline .flow-step:last-child::after {
+      display: none;
+    }
     .flow-step:not(:nth-of-type(5))::after {
       content: "";
       position: absolute;
@@ -515,7 +523,7 @@
       overflow: hidden;
     }
 
-    .proximity-visual { grid-template-columns: 1fr 1fr; gap: 34px; padding: 28px; }
+    .proximity-visual { grid-template-columns: 1fr 1fr; gap: 34px; padding: 8px 28px; }
     .shape-cluster { display: grid; grid-template-columns: repeat(2, 34px); gap: 8px; justify-content: center; }
     .sq, .dot, .tri { width: 34px; height: 34px; background: var(--text); }
     .dot { border-radius: 50%; }
@@ -572,6 +580,42 @@
       background: var(--main);
       color: #fff;
       font-weight: 900;
+    }
+
+    .schedule-panel {
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .schedule-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: clamp(16px, 2vw, 20px);
+      font-weight: 700;
+    }
+
+    .schedule-table td {
+      padding: 14px 18px;
+      border-bottom: 1px solid rgba(170,50,118,.14);
+    }
+
+    .schedule-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .schedule-table td:first-child {
+      color: var(--accent);
+    }
+
+    .schedule-table td:last-child {
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .canva-share-card {
+      margin-top: 18px;
+      background: linear-gradient(135deg, var(--sub), rgba(248,168,168,.42));
+      border: 1px solid rgba(248,168,168,.78);
     }
 
     .final {
@@ -679,225 +723,7 @@
       *, *::before, *::after {
         scroll-behavior: auto !important;
         animation: none !important;
-        transition: none !important;
-      }
-      .reveal { opacity: 1; transform: none; }
-    }
-  
-    /* タイトルは全幅で必ず1行表示 */
-    .hero-card .series {
-      white-space: nowrap !important;
-      word-break: keep-all !important;
-      overflow-wrap: normal !important;
-      text-wrap: nowrap !important;
-      font-size: clamp(18px, 4.15vw, 66px) !important;
-      letter-spacing: -.055em;
-    }
-
-  
-    /* 不自然な途中改行を防ぐ */
-    h1, h2, h3, h4,
-    .series,
-    .theme-label,
-    .goal-box,
-    .accent-box,
-    .flow-step,
-    .speech,
-    .tool-card h4,
-    .tool-card p,
-    .price-chip,
-    .principle h4,
-    .principle p,
-    .link-row span,
-    .final p {
-      word-break: keep-all !important;
-      overflow-wrap: normal !important;
-      line-break: strict;
-      text-wrap: balance;
-    }
-
-    .series {
-      white-space: nowrap !important;
-      font-size: clamp(17px, 3.9vw, 62px) !important;
-      letter-spacing: -.06em !important;
-    }
-
-    .theme-box h1 {
-      font-size: clamp(28px, 4.4vw, 62px);
-      line-height: 1.28;
-    }
-
-    .goal-box,
-    .accent-box {
-      font-size: clamp(22px, 3vw, 38px);
-      line-height: 1.45;
-    }
-
-    .flow-step {
-      font-size: clamp(16px, 1.8vw, 21px);
-    }
-
-    .tool-card p,
-    .principle p,
-    .panel,
-    li {
-      word-break: keep-all;
-      overflow-wrap: anywhere;
-    }
-
-    .nowrap {
-      white-space: nowrap !important;
-      display: inline-block;
-    }
-
-    @media (max-width: 900px) {
-      .series {
-        font-size: clamp(16px, 3.55vw, 34px) !important;
-      }
-      .theme-box h1 {
-        font-size: clamp(26px, 5.8vw, 48px);
-      }
-    }
-
-    @media (max-width: 560px) {
-      .series {
-        font-size: clamp(14px, 3.75vw, 24px) !important;
-        letter-spacing: -.07em !important;
-      }
-      .theme-box h1,
-      .section-title,
-      .subsection h3,
-      .goal-box,
-      .accent-box {
-        word-break: keep-all !important;
-        overflow-wrap: normal !important;
-      }
-    }
-
-    @media (max-width: 700px) {
-      .principles {
-        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-        gap: 10px;
-      }
-      .principle {
-        padding: 14px;
-        border-radius: 18px;
-      }
-      .principle h4 {
-        font-size: clamp(20px, 5vw, 27px);
-      }
-      .principle p {
-        font-size: 14px;
-        line-height: 1.6;
-      }
-      .visual {
-        height: 140px;
-      }
-    }
-
-  
-    .task-notes {
-      margin-top: 18px;
-      display: grid;
-      gap: 8px;
-    }
-    .task-notes p {
-      margin: 0;
-      font-size: 16px;
-      font-weight: 500;
-      line-height: 1.7;
-    }
-
-    .summary-card {
-      position: relative;
-      overflow: hidden;
-      padding: clamp(26px, 4vw, 40px);
-      border-radius: var(--radius-lg);
-      background:
-        radial-gradient(circle at 88% 18%, rgba(255,255,255,.9), transparent 8rem),
-        linear-gradient(135deg, var(--sub), rgba(248,168,168,.42));
-      border: 1px solid rgba(248,168,168,.78);
-      box-shadow: inset 0 1px rgba(255,255,255,.95), 0 14px 32px rgba(170,50,118,.10);
-    }
-    .summary-card::after {
-      content: "";
-      position: absolute;
-      width: 120px;
-      height: 120px;
-      right: -34px;
-      bottom: -44px;
-      border-radius: 32px;
-      border: 16px solid rgba(255,255,255,.48);
-      transform: rotate(18deg);
-    }
-    .summary-card p {
-      position: relative;
-      z-index: 1;
-      margin: 0;
-      font-size: clamp(21px, 2.7vw, 32px);
-      font-weight: 500;
-      line-height: 1.7;
-      letter-spacing: -.02em;
-      color: var(--text);
-    }
-
-  
-    /* デザインの4原則：文字切れ防止 */
-    .principle {
-      min-width: 0;
-      overflow: visible;
-    }
-
-    .principle-head {
-      display: grid;
-      grid-template-columns: auto minmax(0, 1fr);
-      grid-template-areas:
-        "no title"
-        "no en";
-      column-gap: 10px;
-      row-gap: 2px;
-      align-items: center;
-    }
-
-    .principle-no {
-      grid-area: no;
-      align-self: start;
-      padding-top: 4px;
-    }
-
-    .principle h4 {
-      grid-area: title;
-      min-width: 0;
-      font-size: clamp(24px, 2.5vw, 31px);
-      line-height: 1.2;
-      white-space: nowrap;
-      word-break: keep-all !important;
-      overflow: visible;
-    }
-
-    .principle .en {
-      grid-area: en;
-      margin-left: 0;
-      min-width: 0;
-      font-size: clamp(10px, 1.15vw, 14px);
-      line-height: 1.3;
-      letter-spacing: .035em;
-      white-space: normal;
-      overflow-wrap: anywhere;
-    }
-
-    .principle p {
-      min-width: 0;
-      margin: 14px 0 0;
-      font-size: clamp(14px, 1.45vw, 17px);
-      line-height: 1.75;
-      font-weight: 500;
-      word-break: normal !important;
-      overflow-wrap: break-word !important;
-      text-wrap: pretty !important;
-    }
-
-    .principle p strong {
+        t…1222 tokens truncated…principle p strong {
       font-weight: 800;
     }
 
@@ -961,10 +787,6 @@
       overflow-wrap: normal !important;
     }
 
-    .mobile-break {
-      display: none;
-    }
-
     @media (max-width: 700px) {
       .principle-copy {
         font-size: clamp(10px, 2.5vw, 13px) !important;
@@ -973,9 +795,7 @@
       .principle-copy span {
         white-space: nowrap !important;
       }
-    }
 
-    @media (max-width: 700px) {
       html,
       body {
         max-width: 100%;
@@ -1036,21 +856,57 @@
       }
 
       .theme-box h1 {
-        font-size: clamp(17px, 5.5vw, 24px);
+        font-size: clamp(17px, 5vw, 24px);
+        line-height: 1.45;
         word-break: keep-all !important;
         overflow-wrap: normal !important;
         text-wrap: nowrap !important;
       }
 
-      .theme-box h1 > .nowrap {
+      .theme-box h1 > .nowrap,
+      .section-title > .nowrap,
+      .goal-box > .nowrap,
+      .accent-box > .nowrap,
+      .tool-card p > .nowrap,
+      .link-row > span > .nowrap {
         display: block;
       }
 
-      .section-title > .nowrap {
+      .section-title {
+        font-size: clamp(21px, 5.8vw, 26px);
+        line-height: 1.45;
+      }
+
+      .section-title.small {
+        font-size: clamp(18px, 5vw, 22px);
+      }
+
+      .goal-box,
+      .accent-box {
+        padding: 20px 16px;
+        font-size: clamp(16px, 4.5vw, 20px);
+        line-height: 1.6;
+      }
+
+      .lesson-outline .flow-step > .nowrap,
+      .flow-step > .nowrap {
         display: block;
+      }
+
+      .flow-step {
+        padding: 16px 14px;
+        font-size: clamp(14px, 4vw, 17px);
+        line-height: 1.65;
+      }
+
+      .speech {
+        padding: 16px 14px;
+        font-size: clamp(14px, 3.8vw, 16px);
       }
 
       .subsection h3 {
+        font-size: clamp(19px, 5.3vw, 24px);
+        line-height: 1.5;
         word-break: normal !important;
         overflow-wrap: break-word !important;
         text-wrap: pretty !important;
@@ -1071,17 +927,138 @@
         }
       }
 
-      .goal-box > .nowrap,
-      .accent-box > .nowrap,
-      .tool-card p > .nowrap,
-      .summary-card p > .nowrap,
-      .link-row > span > .nowrap {
+      .price-chip {
+        max-width: 100%;
+        font-size: 14px;
+        white-space: nowrap !important;
+      }
+
+      .panel,
+      .tool-card,
+      .task-steps li {
+        font-size: clamp(14px, 3.8vw, 16px);
+        line-height: 1.75;
+      }
+
+      .task-steps li {
+        padding: 14px 12px 14px 50px;
+      }
+
+      .task-steps li::before {
+        left: 12px;
+      }
+
+      .btn,
+      .btn.wide {
+        min-width: 0;
+        max-width: 100%;
+        font-size: 15px;
+      }
+
+      .proximity-visual {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 8px;
+        padding: 12px;
+      }
+
+      .shape-cluster {
+        grid-template-columns: repeat(2, 16px);
+        gap: 4px;
+      }
+
+      .sq,
+      .dot,
+      .tri {
+        width: 16px;
+        height: 16px;
+      }
+
+      .cluster-wrap {
+        gap: 5px;
+      }
+
+      .alignment-visual,
+      .repetition-visual {
+        padding: 12px;
+      }
+
+      .alignment-lines {
+        gap: 7px;
+      }
+
+      .alignment-lines span {
+        height: 9px;
+      }
+
+      .alignment-lines span:nth-child(n+4) {
+        height: 4px;
+      }
+
+      .repeat-row {
+        grid-template-columns: 30% minmax(0, 1fr);
+        gap: 6px;
+        margin-bottom: 7px;
+      }
+
+      .repeat-row b {
+        height: 22px;
+      }
+
+      .repeat-row i {
+        gap: 4px;
+      }
+
+      .repeat-row i::before,
+      .repeat-row i::after {
+        height: 5px;
+      }
+
+      .contrast-visual {
+        padding: 8px;
+      }
+
+      .contrast-circles span:nth-child(1) {
+        width: 60px;
+        height: 60px;
+        left: 8%;
+        top: 18%;
+      }
+
+      .contrast-circles span:nth-child(2) {
+        width: 26px;
+        height: 26px;
+        left: 54%;
+        top: 62%;
+      }
+
+      .contrast-circles span:nth-child(3) {
+        width: 38px;
+        height: 38px;
+        right: 4%;
+        top: 12%;
+      }
+
+      .summary-card p {
+        font-size: clamp(16px, 4.1vw, 19px);
+      }
+
+      .summary-card p > .nowrap {
         display: block;
       }
 
-      .price-chip {
-        max-width: 100%;
-        white-space: nowrap !important;
+      .schedule-table {
+        font-size: clamp(13px, 3.8vw, 16px);
+      }
+
+      .schedule-table td {
+        padding: 12px 10px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .summary-card p > .nowrap {
+        white-space: normal !important;
+        text-wrap: pretty !important;
       }
     }
 
@@ -1097,12 +1074,21 @@
       <p class="series"><span class="nowrap">Canva AIマスターゼミ 【4期】</span><span class="session-no">第<span class="number">1</span>回</span></p>
       <p class="theme-label">📍本日のテーマ</p>
       <div class="theme-box">
-        <h1><span class="nowrap">ゼミの進め方＆</span><span class="nowrap">デザインの基礎を理解しよう</span></h1>
+        <h1><span class="nowrap">ゼミの進め方＆</span><span class="nowrap">デザインの基礎を</span><span class="nowrap">理解しよう</span></h1>
       </div>
     </div>
   </header>
 
   <main class="shell">
+    <section class="section reveal" id="lesson-outline">
+      <h2 class="section-title small">📍本日のゼミの流れ</h2>
+      <div class="flow lesson-outline">
+        <div class="flow-step">① ゼミの進め方（20分）</div>
+        <div class="flow-step"><span class="nowrap">② 講義：デザインの基礎と</span><span class="nowrap">Canvaでの案件獲得（25分）</span></div>
+        <div class="flow-step">③ まとめとネクストアクション（10分）</div>
+      </div>
+    </section>
+
     <section class="section reveal" id="flow">
       <h2 class="section-title small">📍次週からのゼミの流れ</h2>
       <div class="flow">
@@ -1118,7 +1104,30 @@
     <section class="section reveal" id="part1">
       <div class="part-pill">Part①</div>
       <h2 class="section-title">本日のゴール</h2>
-      <div class="goal-box"><span class="nowrap">毎週やることを把握する＆</span><span class="nowrap">デザインの基礎を理解する</span></div>
+      <div class="goal-box"><span class="nowrap">毎週やることを把握する＆</span><span class="nowrap">Canvaデザインの</span><span class="nowrap">可能性を知る</span></div>
+
+      <div class="subsection">
+        <h3>ゼミのスケジュール</h3>
+        <div class="panel schedule-panel">
+          <table class="schedule-table">
+            <tbody>
+              <tr><td>8月6日(木)</td><td>19:00~20:30</td></tr>
+              <tr><td>8月13日(木)</td><td>19:00~20:30</td></tr>
+              <tr><td>8月20日(木)</td><td>19:00~20:30</td></tr>
+              <tr><td>8月27日(木)</td><td>19:00~20:30</td></tr>
+              <tr><td>9月3日(木)</td><td>19:00~20:30</td></tr>
+              <tr><td>9月10日(木)</td><td>19:00~20:30</td></tr>
+              <tr><td>9月17日(木)</td><td>19:00~20:30</td></tr>
+              <tr><td>9月25日(木)</td><td>19:00~20:30</td></tr>
+              <tr><td>10月1日(木)</td><td>19:00~20:30</td></tr>
+              <tr><td>10月8日(木)</td><td>19:00~20:30</td></tr>
+              <tr><td>10月15日(木)</td><td>19:00~20:30</td></tr>
+              <tr><td>10月22日(木)</td><td>19:00~20:30</td></tr>
+              <tr><td>10月29日(木)</td><td>19:00~20:30</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
       <div class="subsection">
         <h3>事前課題について</h3>
@@ -1135,10 +1144,6 @@
       <div class="subsection">
         <h3>質問について</h3>
         <div class="panel">
-          <div class="link-row">
-            <span>質問フォーム</span>
-            <a class="btn" href="https://forms.gle/Jc9HSEfWKwrJwwE3A" target="_blank" rel="noopener noreferrer">開く</a>
-          </div>
           <div class="link-row">
             <span>ゼミ掲示板</span>
             <a class="btn" href="https://genai.commmune.com/view/box?boxId=talk002&amp;categoryIndex=99" target="_blank" rel="noopener noreferrer">開く</a>
@@ -1286,19 +1291,32 @@
         <ol class="task-steps">
           <li>Canvaでアイキャッチのテンプレートを選ぶ （アイキャッチのテンプレートなら何でもOK）</li>
           <li>手順に従ってアイキャッチをカスタマイズする</li>
-          <li>完成したアイキャッチに名前を付けて（アイキャッチ_ニックネーム）PNGでダウンロードする</li>
-          <li>課題提出フォームで画像をアップロードして提出する</li>
+          <li>完成したアイキャッチに名前を付けて<span class="nowrap">（アイキャッチ_ニックネーム）</span>PNGでダウンロードする</li>
+          <li>完成したデザインのCanvaテンプレートリンクを発行する</li>
         </ol>
+        <div class="panel canva-share-card">
+          <div class="link-row">
+            <span>Canva共有リンクの発行方法</span>
+            <a class="btn" href="https://drive.google.com/file/d/17sEYtS-z0VLlKxOfnlcpyhnU0dIzD9rP/view?usp=sharing" target="_blank" rel="noopener noreferrer">開く</a>
+          </div>
+        </div>
         <div class="task-notes">
           <p>※教材EP19を見ながら進めてみましょう</p>
           <p class="highlight">※写真と図形が入ったテンプレを選んでください</p>
+        </div>
+
+        <h4>課題の提出方法</h4>
+        <div class="panel soft">
+          <p>完成したデザインはCanvaテンプレートリンクで提出してください。</p>
+          <p class="highlight">課題提出フォームはこちら▼</p>
+          <a class="btn wide" href="https://app.notion.com/p/4d1c676edcc544c188267b80e62a7902?v=67b1f802283540c59654c5284e524630" target="_blank" rel="noopener noreferrer">事前課題提出フォーム</a>
         </div>
       </div>
     </section>
 
     <section class="section reveal" id="summary">
       <div class="summary-card">
-        <p><span class="nowrap">Communeに意気込み・</span><span class="nowrap">今日の感想・目標などを</span><span class="nowrap">投稿してみましょう！</span></p>
+        <p><span class="nowrap">Communeに意気込み・今日の感想・</span><span class="nowrap">目標などを投稿してみましょう！</span></p>
       </div>
     </section>
   </main>
@@ -1324,3 +1342,4 @@
   </script>
 </body>
 </html>
+
