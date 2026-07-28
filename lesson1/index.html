@@ -723,7 +723,229 @@
       *, *::before, *::after {
         scroll-behavior: auto !important;
         animation: none !important;
-        t…1222 tokens truncated…principle p strong {
+        transition: none !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+  
+    /* タイトルは全幅で必ず1行表示 */
+    .hero-card .series {
+      white-space: nowrap !important;
+      word-break: keep-all !important;
+      overflow-wrap: normal !important;
+      text-wrap: nowrap !important;
+      font-size: clamp(18px, 4.15vw, 66px) !important;
+      letter-spacing: -.055em;
+    }
+
+  
+    /* 不自然な途中改行を防ぐ */
+    h1, h2, h3, h4,
+    .series,
+    .theme-label,
+    .goal-box,
+    .accent-box,
+    .flow-step,
+    .speech,
+    .tool-card h4,
+    .tool-card p,
+    .price-chip,
+    .principle h4,
+    .principle p,
+    .link-row span,
+    .final p {
+      word-break: keep-all !important;
+      overflow-wrap: normal !important;
+      line-break: strict;
+      text-wrap: balance;
+    }
+
+    .series {
+      white-space: nowrap !important;
+      font-size: clamp(17px, 3.9vw, 62px) !important;
+      letter-spacing: -.06em !important;
+    }
+
+    .theme-box h1 {
+      font-size: clamp(28px, 4.4vw, 62px);
+      line-height: 1.28;
+    }
+
+    .goal-box,
+    .accent-box {
+      font-size: clamp(22px, 3vw, 38px);
+      line-height: 1.45;
+    }
+
+    .flow-step {
+      font-size: clamp(16px, 1.8vw, 21px);
+    }
+
+    .tool-card p,
+    .principle p,
+    .panel,
+    li {
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+
+    .nowrap {
+      white-space: nowrap !important;
+      display: inline-block;
+    }
+
+    @media (max-width: 900px) {
+      .series {
+        font-size: clamp(16px, 3.55vw, 34px) !important;
+      }
+      .theme-box h1 {
+        font-size: clamp(26px, 5.8vw, 48px);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .series {
+        font-size: clamp(14px, 3.75vw, 24px) !important;
+        letter-spacing: -.07em !important;
+      }
+      .theme-box h1,
+      .section-title,
+      .subsection h3,
+      .goal-box,
+      .accent-box {
+        word-break: keep-all !important;
+        overflow-wrap: normal !important;
+      }
+    }
+
+    .mobile-break {
+      display: none;
+    }
+
+    @media (max-width: 700px) {
+      .principles {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 10px;
+      }
+      .principle {
+        padding: 14px;
+        border-radius: 18px;
+      }
+      .principle h4 {
+        font-size: clamp(20px, 5vw, 27px);
+      }
+      .principle p {
+        font-size: 14px;
+        line-height: 1.6;
+      }
+      .visual {
+        height: 140px;
+      }
+    }
+
+  
+    .task-notes {
+      margin-top: 18px;
+      display: grid;
+      gap: 8px;
+    }
+    .task-notes p {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1.7;
+    }
+
+    .summary-card {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(26px, 4vw, 40px);
+      border-radius: var(--radius-lg);
+      background:
+        radial-gradient(circle at 88% 18%, rgba(255,255,255,.9), transparent 8rem),
+        linear-gradient(135deg, var(--sub), rgba(248,168,168,.42));
+      border: 1px solid rgba(248,168,168,.78);
+      box-shadow: inset 0 1px rgba(255,255,255,.95), 0 14px 32px rgba(170,50,118,.10);
+    }
+    .summary-card::after {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      right: -34px;
+      bottom: -44px;
+      border-radius: 32px;
+      border: 16px solid rgba(255,255,255,.48);
+      transform: rotate(18deg);
+    }
+    .summary-card p {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      font-size: clamp(21px, 2.7vw, 32px);
+      font-weight: 500;
+      line-height: 1.7;
+      letter-spacing: -.02em;
+      color: var(--text);
+    }
+
+  
+    /* デザインの4原則：文字切れ防止 */
+    .principle {
+      min-width: 0;
+      overflow: visible;
+    }
+
+    .principle-head {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      grid-template-areas:
+        "no title"
+        "no en";
+      column-gap: 10px;
+      row-gap: 2px;
+      align-items: center;
+    }
+
+    .principle-no {
+      grid-area: no;
+      align-self: start;
+      padding-top: 4px;
+    }
+
+    .principle h4 {
+      grid-area: title;
+      min-width: 0;
+      font-size: clamp(24px, 2.5vw, 31px);
+      line-height: 1.2;
+      white-space: nowrap;
+      word-break: keep-all !important;
+      overflow: visible;
+    }
+
+    .principle .en {
+      grid-area: en;
+      margin-left: 0;
+      min-width: 0;
+      font-size: clamp(10px, 1.15vw, 14px);
+      line-height: 1.3;
+      letter-spacing: .035em;
+      white-space: normal;
+      overflow-wrap: anywhere;
+    }
+
+    .principle p {
+      min-width: 0;
+      margin: 14px 0 0;
+      font-size: clamp(14px, 1.45vw, 17px);
+      line-height: 1.75;
+      font-weight: 500;
+      word-break: normal !important;
+      overflow-wrap: break-word !important;
+      text-wrap: pretty !important;
+    }
+
+    .principle p strong {
       font-weight: 800;
     }
 
@@ -1341,5 +1563,4 @@
     document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
   </script>
 </body>
-</html>
-
+</html>
