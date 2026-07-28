@@ -686,7 +686,141 @@
   
     /* タイトルは全幅で必ず1行表示 */
     .hero-card .series {
-      white-space: nowrap…772 tokens truncated…     content: "";
+      white-space: nowrap !important;
+      word-break: keep-all !important;
+      overflow-wrap: normal !important;
+      text-wrap: nowrap !important;
+      font-size: clamp(18px, 4.15vw, 66px) !important;
+      letter-spacing: -.055em;
+    }
+
+  
+    /* 不自然な途中改行を防ぐ */
+    h1, h2, h3, h4,
+    .series,
+    .theme-label,
+    .goal-box,
+    .accent-box,
+    .flow-step,
+    .speech,
+    .tool-card h4,
+    .tool-card p,
+    .price-chip,
+    .principle h4,
+    .principle p,
+    .link-row span,
+    .final p {
+      word-break: keep-all !important;
+      overflow-wrap: normal !important;
+      line-break: strict;
+      text-wrap: balance;
+    }
+
+    .series {
+      white-space: nowrap !important;
+      font-size: clamp(17px, 3.9vw, 62px) !important;
+      letter-spacing: -.06em !important;
+    }
+
+    .theme-box h1 {
+      font-size: clamp(28px, 4.4vw, 62px);
+      line-height: 1.28;
+    }
+
+    .goal-box,
+    .accent-box {
+      font-size: clamp(22px, 3vw, 38px);
+      line-height: 1.45;
+    }
+
+    .flow-step {
+      font-size: clamp(16px, 1.8vw, 21px);
+    }
+
+    .tool-card p,
+    .principle p,
+    .panel,
+    li {
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+
+    .nowrap {
+      white-space: nowrap !important;
+      display: inline-block;
+    }
+
+    @media (max-width: 900px) {
+      .series {
+        font-size: clamp(16px, 3.55vw, 34px) !important;
+      }
+      .theme-box h1 {
+        font-size: clamp(26px, 5.8vw, 48px);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .series {
+        font-size: clamp(14px, 3.75vw, 24px) !important;
+        letter-spacing: -.07em !important;
+      }
+      .theme-box h1,
+      .section-title,
+      .subsection h3,
+      .goal-box,
+      .accent-box {
+        word-break: keep-all !important;
+        overflow-wrap: normal !important;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .principles {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 10px;
+      }
+      .principle {
+        padding: 14px;
+        border-radius: 18px;
+      }
+      .principle h4 {
+        font-size: clamp(20px, 5vw, 27px);
+      }
+      .principle p {
+        font-size: 14px;
+        line-height: 1.6;
+      }
+      .visual {
+        height: 140px;
+      }
+    }
+
+  
+    .task-notes {
+      margin-top: 18px;
+      display: grid;
+      gap: 8px;
+    }
+    .task-notes p {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1.7;
+    }
+
+    .summary-card {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(26px, 4vw, 40px);
+      border-radius: var(--radius-lg);
+      background:
+        radial-gradient(circle at 88% 18%, rgba(255,255,255,.9), transparent 8rem),
+        linear-gradient(135deg, var(--sub), rgba(248,168,168,.42));
+      border: 1px solid rgba(248,168,168,.78);
+      box-shadow: inset 0 1px rgba(255,255,255,.95), 0 14px 32px rgba(170,50,118,.10);
+    }
+    .summary-card::after {
+      content: "";
       position: absolute;
       width: 120px;
       height: 120px;
@@ -1356,4 +1490,3 @@
   </script>
 </body>
 </html>
-
