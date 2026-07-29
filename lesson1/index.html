@@ -394,11 +394,7 @@
       background: rgba(170,50,118,.07);
     }
     .tool-head {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      align-items: center;
-      gap: 12px;
+      display: block;
       margin-bottom: 16px;
     }
 .tool-card h4 {
@@ -460,81 +456,8 @@
       color: var(--accent);
       text-decoration: none;
     }
-    .tool-link-arrow {
-      flex: 0 0 auto;
-      color: var(--accent);
-      font-family: var(--font-en);
-      font-size: 25px;
-      font-weight: 900;
-      line-height: 1;
-    }
-    .pricing-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 44px;
-      padding: 10px 17px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--accent), #d45496);
-      color: #fff;
-      text-decoration: none;
-      font-size: 15px;
-      font-weight: 800;
-      line-height: 1.2;
-      white-space: nowrap;
-      box-shadow: 0 9px 20px rgba(170,50,118,.22);
-      transition: transform .2s ease, box-shadow .2s ease;
-    }
-    .pricing-link:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 13px 24px rgba(170,50,118,.28);
-    }
-    .pricing-link:focus-visible {
-      outline: 3px solid rgba(170,50,118,.28);
-      outline-offset: 4px;
-    }
     ul, ol { padding-left: 1.35em; }
     li + li { margin-top: 8px; }
-
-    .basic-rules {
-      display: grid;
-      gap: 14px;
-      margin-top: 22px;
-    }
-    .basic-rule {
-      display: grid;
-      grid-template-columns: 52px minmax(0, 1fr);
-      align-items: center;
-      gap: 16px;
-      padding: 18px 22px;
-      border-radius: 20px;
-      background: #fff;
-      border: 1px solid rgba(170,50,118,.16);
-      box-shadow: 0 12px 28px rgba(75,36,60,.07);
-    }
-    .basic-rule-no {
-      width: 48px;
-      height: 48px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #fff;
-      font-family: var(--font-en);
-      font-size: 20px;
-      font-weight: 900;
-      line-height: 1;
-      box-shadow: 0 8px 18px rgba(170,50,118,.2);
-    }
-    .basic-rule p {
-      min-width: 0;
-      margin: 0;
-      font-size: clamp(17px, 2vw, 22px);
-      font-weight: 700;
-      line-height: 1.65;
-      word-break: keep-all;
-      overflow-wrap: anywhere;
-    }
 
     .principles {
       display: grid;
@@ -780,36 +703,6 @@
       .btn { width: 100%; }
       .proximity-visual { gap: 18px; padding: 18px; }
       .principle .en { display: none; }
-      .basic-rule {
-        grid-template-columns: 42px minmax(0, 1fr);
-        gap: 12px;
-        padding: 14px;
-        border-radius: 18px;
-      }
-      .basic-rule-no {
-        width: 40px;
-        height: 40px;
-        font-size: 18px;
-      }
-      .basic-rule p {
-        font-size: 15px;
-        line-height: 1.6;
-      }
-      .tool-head {
-        gap: 8px;
-      }
-      .tool-card h4 {
-        padding: 8px 12px;
-        font-size: 22px;
-      }
-      .tool-link-arrow {
-        font-size: 19px;
-      }
-      .pricing-link {
-        min-height: 40px;
-        padding: 9px 11px;
-        font-size: 13px;
-      }
     }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
@@ -1461,8 +1354,6 @@
           <article class="tool-card">
             <div class="tool-head">
               <h4><a href="https://www.canva.com/ja_jp/pricing/" target="_blank" rel="noopener noreferrer">Canva</a></h4>
-              <span class="tool-link-arrow" aria-hidden="true">→</span>
-              <a class="pricing-link" href="https://www.canva.com/ja_jp/pricing/" target="_blank" rel="noopener noreferrer">料金表を見る</a>
             </div>
             <p><span class="nowrap">プロ版を推奨</span><span class="nowrap">（契約していない方には</span><span class="nowrap">30日の無料体験がおすすめ）</span></p>
             <div class="price-chip">Canvaプロ：1,180円/月</div>
@@ -1475,8 +1366,6 @@
           <article class="tool-card">
             <div class="tool-head">
               <h4><a href="https://chatgpt.com/ja-JP/pricing/" target="_blank" rel="noopener noreferrer">ChatGPT</a></h4>
-              <span class="tool-link-arrow" aria-hidden="true">→</span>
-              <a class="pricing-link" href="https://chatgpt.com/ja-JP/pricing/" target="_blank" rel="noopener noreferrer">料金表を見る</a>
             </div>
             <p><span class="nowrap">安定的に生成するなら</span><span class="nowrap">有料版がおすすめ</span></p>
             <div class="price-chip">Go：約1,300円/月</div>
@@ -1502,20 +1391,65 @@
       <h2 class="section-title"><span class="nowrap">理論とテクニックの解説</span></h2>
 
       <div class="subsection">
-        <h3>デザインの基本ルール</h3>
-        <div class="basic-rules">
-          <div class="basic-rule">
-            <span class="basic-rule-no">1</span>
-            <p>デザインの4原則をベースにする</p>
-          </div>
-          <div class="basic-rule">
-            <span class="basic-rule-no">2</span>
-            <p>最も伝えたいこと＆視線誘導を意識する</p>
-          </div>
-          <div class="basic-rule">
-            <span class="basic-rule-no">3</span>
-            <p>内容や意図に合わせてデザインする</p>
-          </div>
+        <h3>デザインの4原則</h3>
+        <div class="principles">
+          <article class="principle">
+            <div class="principle-head">
+              <span class="principle-no">01</span>
+              <h4>近接</h4>
+              <span class="en">Proximity</span>
+            </div>
+            <p class="principle-copy"><span>関連する要素を近づけて</span><span>グループ化する</span></p>
+            <div class="visual proximity-visual" aria-label="近接のイメージ">
+              <div class="cluster-wrap">
+                <div class="shape-cluster"><span class="sq"></span><span class="sq"></span><span class="sq"></span><span class="sq"></span></div>
+                <div class="shape-cluster"><span class="tri"></span><span class="tri"></span><span class="tri"></span><span class="tri"></span></div>
+              </div>
+              <div class="shape-cluster"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            </div>
+          </article>
+
+          <article class="principle">
+            <div class="principle-head">
+              <span class="principle-no">02</span>
+              <h4>整列</h4>
+              <span class="en">Alignment</span>
+            </div>
+            <p class="principle-copy"><span>要素の位置を揃えて</span><span>一体感を持たせる</span></p>
+            <div class="visual alignment-visual" aria-label="整列のイメージ">
+              <div class="alignment-lines">
+                <span></span><span></span><span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+          </article>
+
+          <article class="principle">
+            <div class="principle-head">
+              <span class="principle-no">03</span>
+              <h4>反復</h4>
+              <span class="en">Repetition</span>
+            </div>
+            <p class="principle-copy"><span>同じ特徴を繰り返して</span><span>統一感をつくる</span></p>
+            <div class="visual repetition-visual" aria-label="反復のイメージ">
+              <div>
+                <div class="repeat-row"><b></b><i></i></div>
+                <div class="repeat-row"><b></b><i></i></div>
+                <div class="repeat-row"><b></b><i></i></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="principle">
+            <div class="principle-head">
+              <span class="principle-no">04</span>
+              <h4>対比</h4>
+              <span class="en">Contrast</span>
+            </div>
+            <p class="principle-copy"><span>差をつけて</span><span>情報の優先度を明確にする</span></p>
+            <div class="visual contrast-visual" aria-label="対比のイメージ">
+              <div class="contrast-circles"><span></span><span></span><span></span></div>
+            </div>
+          </article>
         </div>
       </div>
 
@@ -1604,4 +1538,4 @@
     document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
   </script>
 </body>
-</html>
+</html>
